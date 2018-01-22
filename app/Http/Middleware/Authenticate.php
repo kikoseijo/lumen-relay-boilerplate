@@ -35,7 +35,7 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ($this->auth->guard($guard)->guest()) {
+        if ($this->auth->guard($guard)->guest()) {// && !app()->environment('local')) {
             return response('Unauthorized.', 401);
         }
 

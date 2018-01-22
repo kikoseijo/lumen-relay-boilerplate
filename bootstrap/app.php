@@ -36,6 +36,8 @@ $app->withEloquent();
 
 $app->configure('app');
 $app->configure('auth');
+$app->configure('cors');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -68,9 +70,10 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+   \App\Http\Middleware\Throttle::class,
+   \Nord\Lumen\Cors\CorsMiddleware::class,
+]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
@@ -92,7 +95,7 @@ $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
-
+$app->register(\Nord\Lumen\Cors\CorsServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Development service providers
