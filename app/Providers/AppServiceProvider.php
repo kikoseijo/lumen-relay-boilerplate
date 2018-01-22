@@ -26,9 +26,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // TODO: EMAIL support.
+        // $this->registerMailService();
+
         LumenPassport::routes($this->app, ['prefix' => 'api/oauth']);
         LumenPassport::allowMultipleTokens();
         Passport::tokensExpireIn(Carbon::now()->addDays(2));
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(10));
+    }
+
+    /**
+     * Register the Client service.
+     *
+     * @return void
+     */
+    protected function registerMailService()
+    {
+      $this->app->singleton('mailer', function ($app) {
+          $app->configure('mail');
+          return $app->loadComponent('mail', 'Illuminate\Mail\MailServiceProvider', 'mailer');
+      });
     }
 }
