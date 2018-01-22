@@ -19,3 +19,16 @@ $router->get('/', function () use ($router) {
       'debug' => config('app.locale')
     ];
 });
+
+
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
+    $router->get('/', function ()    {
+        // Uses Auth Middleware
+    });
+
+    $router->get('user/profile', function () {
+        // Uses Auth Middleware
+    });
+
+    $router->get('/example', 'ExampleController@getExample');
+});

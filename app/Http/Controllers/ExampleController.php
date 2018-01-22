@@ -14,5 +14,9 @@ class ExampleController extends Controller
         //
     }
 
-    //
+    public function getExample(){
+        return [
+            'hello' => 'Max'
+        ];
+    }
 }
