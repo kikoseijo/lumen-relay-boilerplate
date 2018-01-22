@@ -16,8 +16,8 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
           'name'     => 'Kiko Seijo',
           'email'    => 'kiko@sunnyface.com',
-          'password' => 'secret',
-          'is_admin' => 1,
+          'password' => app('hash')->make('secret'),
+          'admin' => 1,
         ]);
       }
 
@@ -25,8 +25,8 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
           'name'     => 'John Smith',
           'email'    => 'foobarfoo@example.org',
-          'password' => 'foobarfoo',
-          'is_admin' => 1,
+          'password' => app('hash')->make('foobarfoo'),
+          'admin' => 1,
         ]);
       }
     }

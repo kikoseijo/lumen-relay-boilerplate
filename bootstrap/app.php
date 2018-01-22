@@ -26,6 +26,8 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 $app->withEloquent();
 
+class_alias(\Folklore\GraphQL\Support\Facades\GraphQL::class, 'GraphQL');
+
 /*
 |--------------------------------------------------------------------------
 | Load configuration files.
@@ -37,6 +39,7 @@ $app->withEloquent();
 $app->configure('app');
 $app->configure('auth');
 $app->configure('cors');
+$app->configure('graphql');
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +99,10 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(\Nord\Lumen\Cors\CorsServiceProvider::class);
+$app->register(Folklore\GraphQL\LumenServiceProvider::class);
+
+$app->register(App\Providers\GraphQLServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Development service providers
