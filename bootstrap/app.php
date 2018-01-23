@@ -27,6 +27,7 @@ $app->withFacades();
 $app->withEloquent();
 
 class_alias(\Folklore\GraphQL\Support\Facades\GraphQL::class, 'GraphQL');
+class_alias(\Folklore\GraphQL\Relay\Support\Facades\Relay::class, 'Relay');
 
 /*
 |--------------------------------------------------------------------------
@@ -99,9 +100,11 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(\Nord\Lumen\Cors\CorsServiceProvider::class);
-$app->register(Folklore\GraphQL\LumenServiceProvider::class);
 
+// $app->register(Folklore\GraphQL\LumenServiceProvider::class);
+$app->register(Folklore\GraphQL\Relay\ServiceProvider::class);
 $app->register(App\Providers\GraphQLServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------

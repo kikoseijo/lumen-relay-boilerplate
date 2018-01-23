@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Dusterio\LumenPassport\LumenPassport;
 use Laravel\Passport\Passport;
 use Carbon\Carbon;
+use Folklore\GraphQL\GraphQL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,7 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // TODO: EMAIL support.
         // $this->registerMailService();
-
+        $this->app->singleton('graphql', function ($app) {
+                $graphql = new GraphQL($app);
+                return $graphql;
+            });
         LumenPassport::routes($this->app, ['prefix' => 'api/oauth']);
         LumenPassport::allowMultipleTokens();
         Passport::tokensExpireIn(Carbon::now()->addDays(2));

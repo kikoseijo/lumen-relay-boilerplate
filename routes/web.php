@@ -20,6 +20,17 @@ $router->get('/', function () use ($router) {
     ];
 });
 
+$router->post('/test.json', function () use ($router) {
+    return [
+        'test' => true
+    ];
+});
+
+$router->post('/schema.json', function () use ($router) {
+    $schema = GraphQL::introspection('admin');
+    return response()->json($schema);
+});
+
 
 $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($router) {
     $router->get('/', function ()    {

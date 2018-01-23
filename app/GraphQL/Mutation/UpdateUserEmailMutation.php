@@ -2,21 +2,25 @@
 
 namespace App\GraphQL\Mutation;
 
-use Folklore\GraphQL\Support\Mutation;
-use GraphQL\Type\Definition\ResolveInfo;
+use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL\Type\Definition\Type;
 use GraphQL;
 
-class UpdateUserEmailMutation extends Mutation
+class UpdateUserEmailMutation extends BaseMutation
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmail',
+        'name' => 'UpdateUserEmailMutation',
         'description' => 'A mutation'
     ];
 
+    protected function inputType()
+    {
+        return GraphQL::type('UpdateUserEmailInput');
+    }
+
     public function type()
     {
-        return GraphQL::type('User');
+        return GraphQL::type('UpdateUserEmailPayload');
     }
 
     public function args()
@@ -46,15 +50,17 @@ class UpdateUserEmailMutation extends Mutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        $user = User::find($args['id']);
+        $user = User::find($args['input']['id']);
 
         if (!$user) {
             return null;
         }
 
-        $user->email = $args['email'];
+        $user->email = $args['input']['email'];
         $user->save();
 
-        return $user;
+        return [
+            'user' => $user
+        ];
     }
 }

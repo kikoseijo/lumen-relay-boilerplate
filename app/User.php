@@ -36,6 +36,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
+    public function photos()
+    {
+        return $this->hasMany('App\Photo');
+    }
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = app('hash')->make($value);
