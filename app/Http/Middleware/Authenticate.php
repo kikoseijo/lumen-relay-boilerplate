@@ -35,8 +35,10 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        // logi("apddddddddr()");
+        // logi(app('auth')->user());
         if ($this->auth->guard($guard)->guest()) {// && !app()->environment('local')) {
-            return response('Unauthorized.', 401);
+            return response('Unauthorized.Middleware', 401);
         }
 
         return $next($request);

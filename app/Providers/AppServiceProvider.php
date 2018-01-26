@@ -29,13 +29,14 @@ class AppServiceProvider extends ServiceProvider
     {
         // TODO: EMAIL support.
         // $this->registerMailService();
-        $this->app->singleton('graphql', function ($app) {
-                $graphql = new GraphQL($app);
-                return $graphql;
-            });
+        // $this->app->singleton('graphql', function ($app) {
+        //         $graphql = new GraphQL($app);
+        //         return $graphql;
+        //     });
+
         LumenPassport::routes($this->app, ['prefix' => 'api/oauth']);
         LumenPassport::allowMultipleTokens();
-        Passport::tokensExpireIn(Carbon::now()->addDays(2));
+        LumenPassport::tokensExpireIn(Carbon::now()->addDays(2));
         Passport::refreshTokensExpireIn(Carbon::now()->addDays(10));
     }
 

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\GraphQL\Type;
+namespace App\GraphQL\Type\Todo;
 
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\ConnectionType as BaseConnectionType;
 use GraphQL;
 
-class PhotosConnection extends BaseConnectionType
+class TodoConnection extends BaseConnectionType
 {
     protected $attributes = [
-        'name' => 'PhotosConnection',
+        'name' => 'TodoConnection',
     ];
 
     protected function edgeType()
     {
-        return GraphQL::type('Photo');
+        return GraphQL::type('Todo');
     }
 }

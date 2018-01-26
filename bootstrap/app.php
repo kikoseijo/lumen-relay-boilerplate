@@ -80,7 +80,8 @@ $app->middleware([
 ]);
 
 $app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
+    'auth' => \App\Http\Middleware\Authenticate::class,
+    'mock' => \App\Http\Middleware\MockLogin::class,
 ]);
 
 /*
@@ -101,7 +102,7 @@ $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 $app->register(\Nord\Lumen\Cors\CorsServiceProvider::class);
 
-// $app->register(Folklore\GraphQL\LumenServiceProvider::class);
+$app->register(Folklore\GraphQL\LumenServiceProvider::class);
 $app->register(Folklore\GraphQL\Relay\ServiceProvider::class);
 $app->register(App\Providers\GraphQLServiceProvider::class);
 

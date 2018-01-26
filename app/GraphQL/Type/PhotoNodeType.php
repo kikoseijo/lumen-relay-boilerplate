@@ -11,7 +11,6 @@ class PhotoNodeType extends BaseNodeType
 {
     protected $attributes = [
         'name' => 'Photo',
-        'description' => 'A relay node type'
     ];
 
     protected function fields()

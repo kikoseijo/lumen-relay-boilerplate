@@ -8,11 +8,10 @@ use GraphQL\Type\Definition\Type;
 use GraphQL;
 use App\User;
 
-class UpdateUserPasswordMutation extends Mutation
+class UpdateUserPassword extends Mutation
 {
     protected $attributes = [
         'name' => 'updateUserPassword',
-        'description' => 'A mutation'
     ];
 
     public function type()

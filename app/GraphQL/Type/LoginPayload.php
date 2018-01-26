@@ -3,22 +3,22 @@
 namespace App\GraphQL\Type;
 
 use GraphQL\Type\Definition\Type;
-use Folklore\GraphQL\Relay\Support\InputType as BaseInputType;
+use Folklore\GraphQL\Relay\Support\PayloadType as BasePayloadType;
 use GraphQL;
 
-class UpdateUserEmailInput extends BaseInputType
+class LoginPayload extends BasePayloadType
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailInput',
+        'name' => 'LoginPayload',
     ];
 
     protected function fields()
     {
         return [
-            'id' => [
-                'type' => Type::nonNull(Type::id()),
+            'user' => [
+                'type' => GraphQL::type('User'),
             ],
-            'email' => [
+            'token' => [
                 'type' => Type::nonNull(Type::string()),
             ],
         ];

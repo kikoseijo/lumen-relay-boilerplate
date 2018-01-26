@@ -6,11 +6,10 @@ use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL\Type\Definition\Type;
 use GraphQL;
 
-class UpdateUserEmailMutation extends BaseMutation
+class UpdateUserEmail extends BaseMutation
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailMutation',
-        'description' => 'A mutation'
+        'name' => 'updateUserEmail',
     ];
 
     protected function inputType()

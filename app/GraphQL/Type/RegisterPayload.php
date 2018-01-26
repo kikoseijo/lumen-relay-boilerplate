@@ -6,18 +6,21 @@ use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\PayloadType as BasePayloadType;
 use GraphQL;
 
-class UpdateUserEmailPayload extends BasePayloadType
+class RegisterPayload extends BasePayloadType
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailPayload',
+        'name' => 'RegisterPayload',
     ];
 
     protected function fields()
     {
         return [
-            'user' => [
-                'type' => GraphQL::type('User'),
-            ]
+          'token' => [
+              'type' => Type::nonNull(Type::string())
+          ],
+          'id' => [
+              'type' => Type::nonNull(Type::id())
+          ],
         ];
     }
 }

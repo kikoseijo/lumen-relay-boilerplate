@@ -6,7 +6,7 @@ return [
     // The name of the default schema used when no argument is provided
     // to GraphQL::schema() or when the routes are used without the {graphql_schema}
     // parameter.
-    'schema' => 'default',
+    'schema' => 'admin',
 
     // The list of schemas for you graphql server. It expects an array to provide
     // both the 'query' fields and the 'mutation' fields. You can also
@@ -70,7 +70,7 @@ return [
     // ]
     //
     'types' => [
-       'User' => App\GraphQL\Type\UserNodeType::class
+       // 'User' => App\GraphQL\Type\UserNodeType::class
     ],
 
     // The prefix for routes. You can remove it by setting it to null.
@@ -147,17 +147,19 @@ return [
         // Define the schemas on which you would like to use relay. It will
         // automatically add the node query defined below to those schemas.
         // The parameter can be a string, an array of names or "*" for all schemas.
-        'schemas' => 'default',
+        'schemas' => '*',
 
         // The Query class used for the node query
         'query' => [
-            'node' => \Folklore\GraphQL\Relay\NodeQuery::class
+            'node' => \Folklore\GraphQL\Relay\NodeQuery::class,
+            // 'users' => App\GraphQL\Query\UsersQuery::class,
         ],
 
         // The Type classes used for the Node interface and the PageInfo
         'types' => [
             'Node' => \Folklore\GraphQL\Relay\NodeInterface::class,
-            'PageInfo' => \Folklore\GraphQL\Relay\PageInfoType::class
+            'PageInfo' => \Folklore\GraphQL\Relay\PageInfoType::class,
+            // 'User' => App\GraphQL\Type\UserNodeType::class
         ]
     ],
 

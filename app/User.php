@@ -33,12 +33,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'deleted_at', 'remember_token'
     ];
 
     public function photos()
     {
         return $this->hasMany('App\Photo');
+    }
+    public function todos()
+    {
+        return $this->hasMany('App\Todo');
     }
 
     public function setPasswordAttribute($value)

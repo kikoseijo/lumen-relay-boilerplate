@@ -1,25 +1,27 @@
 <?php
 
-namespace App\GraphQL\Type;
+namespace App\GraphQL\Type\Todo;
 
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\InputType as BaseInputType;
 use GraphQL;
 
-class UpdateUserEmailInput extends BaseInputType
+class AddTodoInput extends BaseInputType
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailInput',
+        'name' => 'AddTodoInput',
     ];
 
     protected function fields()
     {
         return [
-            'id' => [
-                'type' => Type::nonNull(Type::id()),
-            ],
-            'email' => [
+            'text' => [
                 'type' => Type::nonNull(Type::string()),
+                'rules' => ['required']
+            ],
+            'clientMutationId' => [
+                'type' => Type::string(),
+                'rules' => ['required']
             ],
         ];
     }

@@ -11,6 +11,8 @@
 |
 */
 
+// $router->post('graphql/login', 'AuthenticateController@authenticate');
+
 $router->get('/', function () use ($router) {
     // config(['app.locale' => 'en']);
     return [
@@ -26,8 +28,14 @@ $router->post('/test.json', function () use ($router) {
     ];
 });
 
+$router->get('/schema.json', function () use ($router) {
+    $schema = GraphQL::introspection('admin');
+    // dd($schema);
+    return response()->json($schema);
+});
 $router->post('/schema.json', function () use ($router) {
     $schema = GraphQL::introspection('admin');
+
     return response()->json($schema);
 });
 

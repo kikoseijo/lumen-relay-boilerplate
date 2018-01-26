@@ -61,7 +61,13 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof HttpResponseException) {
             $response['status']   = Response::HTTP_INTERNAL_SERVER_ERROR;
-        } elseif ($e instanceof MethodNotAllowedHttpException) {
+        // } elseif ($e instanceof Tymon\JWTAuth\Exceptions\TokenExpiredException) {
+        //     $response['status'] = 'token_expired';
+        //     $response['error_code'] = $e->getStatusCode();
+      	// } else if ($e instanceof Tymon\JWTAuth\Exceptions\TokenInvalidException) {
+        //     $response['status'] = 'token_invalid';
+        //     $response['error_code'] = $e->getStatusCode();
+      	} elseif ($e instanceof MethodNotAllowedHttpException) {
             $response['status'] = Response::HTTP_METHOD_NOT_ALLOWED;
         } elseif ($e instanceof NotFoundHttpException) {
             $response['status'] = Response::HTTP_NOT_FOUND;
@@ -87,7 +93,9 @@ class Handler extends ExceptionHandler
 
         if ($response['status']) {
             $response['message'] = $e->getMessage();
-            $response['error_code'] = $e->getCode() ?? '';
+            if (array_has($response, 'error_code')){
+                $response['error_code'] = $e->getCode() ?? '';
+            }
             // $response['exception'] = $e->getTraceAsString() ?? '';
             if (app()->environment() == 'local'){
                 $response['file'] = $e->getFile() ?? '';

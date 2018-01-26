@@ -6,21 +6,25 @@ use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\InputType as BaseInputType;
 use GraphQL;
 
-class UpdateUserEmailInput extends BaseInputType
+class LoginInput extends BaseInputType
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailInput',
+        'name' => 'LoginInput',
     ];
 
     protected function fields()
     {
         return [
-            'id' => [
-                'type' => Type::nonNull(Type::id()),
-            ],
             'email' => [
+                'name' => 'email',
                 'type' => Type::nonNull(Type::string()),
+                'rules' => ['required', 'email']
             ],
+            'password' => [
+                'name' => 'password',
+                'type' => Type::nonNull(Type::string()),
+                'rules' => ['required']
+            ]
         ];
     }
 }

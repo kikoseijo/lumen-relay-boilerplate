@@ -11,7 +11,6 @@ class PhotosConnectionField extends ConnectionField
 {
     protected $attributes = [
         'name' => 'PhotosConnectionField',
-        'description' => 'A field'
     ];
 
     protected function type()
@@ -33,7 +32,7 @@ class PhotosConnectionField extends ConnectionField
         ];
     }
 
-    public function resolve($root, $args)
+    public function resolveQueryBuilder($root, $args)
     {
         return $root->photos();
     }
