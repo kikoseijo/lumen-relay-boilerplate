@@ -176,7 +176,7 @@ I kindly **_invite you to participate_** with your pull requests or just by simp
 Every plugin has its own plugins, i´m only referencing here packages that made this implementation possible. For all the other ones i must also say thanks!.
 
 * [Laravel Lumen](http://lumen.laravel.com) best PHP API ever made.
-* [](https://github.com/webonyx/graphql-php) a PHP port of GraphQL reference implementation.
+* [graphql-php](https://github.com/webonyx/graphql-php) a PHP port of GraphQL reference implementation.
 * [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) A version of webonyx for Laravel + Lumen.
 * [lumen-cors](https://github.com/digiaonline/lumen-cors) no reactive apps with CORS browser restriction.
 * [Spatie Activity logs](https://github.com/spatie/laravel-activitylog) lovely handy logs, made simple by the Spatie people.
