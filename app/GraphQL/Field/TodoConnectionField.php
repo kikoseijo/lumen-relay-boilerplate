@@ -44,13 +44,12 @@ class TodoConnectionField extends ConnectionField
 
     public function resolveQueryBuilder($root, $args)
     {
-        logi($args);
-        $skip = array_get($args, 'after') ?? 0;
-        $first = array_get($args, 'first') ?? 10;
-        $status = array_get($args, 'status') == 'complete' ? 1 : 0;
-        return $root->todos()
-                    ->where('complete', $status)
-                    ->skip($skip)
-                    ->take($first);
+        // $skip = array_get($args, 'after') ?? 0;
+        // $first = array_get($args, 'first') ?? 10;
+        // $status = array_get($args, 'status') == 'complete' ? 1 : 0;
+        return $root->todos();
+                    // ->where('complete', $status)
+                    // ->skip($skip)
+                    // ->take($first);
     }
 }

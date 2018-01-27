@@ -49,6 +49,6 @@ class ViewerQuery extends BaseQuery
             return null;
         }
 
-        return $context;
+        return $context; // User::find($context->id);
     }
 }

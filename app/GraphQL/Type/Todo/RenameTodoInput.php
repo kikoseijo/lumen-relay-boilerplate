@@ -16,14 +16,14 @@ class RenameTodoInput extends BaseInputType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id())
+                'type' => Type::nonNull(Type::string())
             ],
             'text' => [
                 'type' => Type::nonNull(Type::string())
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

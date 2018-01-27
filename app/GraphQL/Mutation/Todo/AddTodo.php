@@ -7,9 +7,12 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL;
 use App\Todo;
+use App\User;
 
 class AddTodo extends BaseMutation
 {
+
+    // protected $inputObject = true;
     public function __construct(){
         // $this->middleware('auth:api');
     }
@@ -40,14 +43,31 @@ class AddTodo extends BaseMutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        logi($args);
+
+        $user = User::findOrFail($context->id);
+
+        logi('$info');
+        logi(json_encode($info));
+        logi('$context');
         logi($context);
-        $record = Todo::create([
-            'text' => array_get($args, 'input.text'),
-            'complete' => array_get($args, 'input.complete') ?? 0,
-            'user_id' => $contex->id
-        ]);
-        logi($record);
-        return $record;
+        $record = new Todo();
+        $record->text =  array_get($args, 'input.text');
+        $record->complete =  array_get($args, 'input.complete')?? 0;
+        $record->user_id =  $context->id;
+        $record->save();
+        // $record = Todo::create([
+        //     'text' => array_get($args, 'input.text'),
+        //     'complete' => array_get($args, 'input.complete') ?? 0,
+        //     'user_id' => $context->id
+        // ]);
+        //
+        return [
+          'todoEdge' => [
+              'cursor' => $record->id,
+              'node' => $record
+          ],
+          'viewer' => $user,
+        ];
+
     }
 }

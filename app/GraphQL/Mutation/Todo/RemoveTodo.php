@@ -6,6 +6,8 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL;
+use App\Todo;
+use App\User;
 
 class RemoveTodo extends BaseMutation
 {
@@ -26,14 +28,26 @@ class RemoveTodo extends BaseMutation
     public function args()
     {
         return [
-            'input' => [
+            'id' => [
+                'name' => 'input',
                 'type' => Type::nonNull(GraphQL::type('RemoveTodoInput')),
-            ]
+            ],
+
         ];
     }
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-
+        $relayID = array_get($args,'input.id');
+        $globalId = app('graphql.relay')->fromGlobalId($relayID);
+        // $typeName = $globalId['type'];
+        $id = array_get($globalId,'id');
+        $record = Todo::findOrFail($id);
+        // $id = $record->id();
+        $record->delete();
+        return [
+            'deletedTodoId' => $relayID,
+            'viewer' => User::findOrFail($context->id)
+        ];
     }
 }

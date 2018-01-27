@@ -21,9 +21,9 @@ class ChangeTodoStatusPayload extends BasePayloadType
             'viewer' => [
                 'type' => GraphQL::type('User')
             ],
-            'clientMutationId' => [
-                'type' => Type::nonNull(Type::string())
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string())
+            // ],
         ];
     }
 }

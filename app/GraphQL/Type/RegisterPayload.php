@@ -19,7 +19,7 @@ class RegisterPayload extends BasePayloadType
               'type' => Type::nonNull(Type::string())
           ],
           'id' => [
-              'type' => Type::nonNull(Type::id())
+              'type' => Type::nonNull(Type::string())
           ],
         ];
     }

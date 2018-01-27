@@ -16,7 +16,7 @@ class UpdateUserEmailInput extends BaseInputType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id()),
+                'type' => Type::nonNull(Type::string()),
             ],
             'email' => [
                 'type' => Type::nonNull(Type::string()),

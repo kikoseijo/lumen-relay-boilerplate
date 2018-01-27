@@ -3,10 +3,10 @@
 namespace App\GraphQL\Type\Todo;
 
 use GraphQL\Type\Definition\Type;
-use Folklore\GraphQL\Relay\Support\InputType as BaseInputType;
+use Folklore\GraphQL\Relay\Support\InputType;
 use GraphQL;
 
-class RemoveTodoInput extends BaseInputType
+class RemoveTodoInput extends InputType
 {
     protected $attributes = [
         'name' => 'RemoveTodoInput',
@@ -16,11 +16,11 @@ class RemoveTodoInput extends BaseInputType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id())
+                'type' => Type::nonNull(Type::string())
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

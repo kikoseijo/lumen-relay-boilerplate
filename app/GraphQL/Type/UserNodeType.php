@@ -22,7 +22,7 @@ class UserNodeType extends NodeType
     {
         return [
             'id'       => [
-                'type'        => Type::nonNull(Type::id()),
+                'type'        => Type::nonNull(Type::string()),
             ],
             'name'     => [
                 'type'        => Type::nonNull(Type::string()),

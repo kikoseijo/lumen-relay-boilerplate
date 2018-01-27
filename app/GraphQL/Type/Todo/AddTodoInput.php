@@ -19,10 +19,10 @@ class AddTodoInput extends BaseInputType
                 'type' => Type::nonNull(Type::string()),
                 'rules' => ['required']
             ],
-            'clientMutationId' => [
-                'type' => Type::string(),
-                'rules' => ['required']
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            //     'rules' => ['required']
+            // ],
         ];
     }
 }

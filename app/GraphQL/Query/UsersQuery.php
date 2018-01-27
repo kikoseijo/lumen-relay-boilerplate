@@ -31,12 +31,30 @@ class UsersQuery extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+
+        $fields = $info->getFieldSelection($depth = 3);
+
+        $query = User::query();
+
         if (isset($args['id'])) {
-            return User::where('id' , $args['id'])->get();
+            $query->where('id' , $args['id']);
         } else if(isset($args['email'])) {
-            return User::where('email', $args['email'])->get();
-        } else {
-            return User::all();
+            $query->where('email', $args['email']);
         }
+
+        foreach ($fields as $field => $keys) {
+            if ($field === 'photos') {
+                $query->with('photos');
+            }
+
+            if ($field === 'todos') {
+                $query->with('todos');
+            }
+        }
+
+        return $query->get();
+
+
+
     }
 }

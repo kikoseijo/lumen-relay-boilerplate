@@ -15,9 +15,9 @@ class RemoveCompletedTodosInput extends BaseInputType
     protected function fields()
     {
         return [
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

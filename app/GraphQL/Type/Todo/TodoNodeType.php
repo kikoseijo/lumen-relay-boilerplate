@@ -3,11 +3,11 @@
 namespace App\GraphQL\Type\Todo;
 
 use GraphQL\Type\Definition\Type;
-use Folklore\GraphQL\Relay\Support\NodeType as BaseNodeType;
+use Folklore\GraphQL\Relay\Support\NodeType;
 use GraphQL;
 use App\Todo;
 
-class TodoNodeType extends BaseNodeType
+class TodoNodeType extends NodeType
 {
     protected $attributes = [
         'name' => 'Todo',
@@ -17,7 +17,7 @@ class TodoNodeType extends BaseNodeType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id())
+                'type' => Type::nonNull(Type::string())
             ],
             'text' => [
                 'type' => Type::string()

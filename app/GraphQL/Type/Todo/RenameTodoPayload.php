@@ -18,9 +18,9 @@ class RenameTodoPayload extends BasePayloadType
             'todo' => [
                 'type' => GraphQL::type('Todo')
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

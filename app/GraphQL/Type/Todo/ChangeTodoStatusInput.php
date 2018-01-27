@@ -19,11 +19,11 @@ class ChangeTodoStatusInput extends BaseInputType
                 'type' => Type::nonNull(Type::boolean())
             ],
             'id' => [
-                'type' => Type::nonNull(Type::id())
+                'type' => Type::nonNull(Type::string())
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

@@ -17,7 +17,7 @@ class PhotoNodeType extends BaseNodeType
     {
         return [
             'id' => [
-                'type' => Type::nonNull(Type::id())
+                'type' => Type::nonNull(Type::string())
             ],
             // 'name' => [
             //     'type'        => Type::nonNull(Type::string()),

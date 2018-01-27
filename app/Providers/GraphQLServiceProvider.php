@@ -7,11 +7,17 @@ use App\GraphQL\Query\ViewerQuery;
 use App\GraphQL\Type\UserNodeType;
 use GraphQL;
 // use GraphQL\GraphQL;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class GraphQLServiceProvider extends ServiceProvider
 {
 
+    /**
+     * @var mixed
+     */
     protected $schema;
     /**
      *
@@ -25,9 +31,22 @@ class GraphQLServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // DB::enableQueryLog();
+        DB::listen(function ($sql) {
+            logi($sql->sql);
+        });
         $schema = $this->addSchemas();
         $this->addTypes();
-        \DB::enableQueryLog();
+        // Event::listen('illuminate.query', function ($query) {
+        //     logi(json_encode($query));
+        // });
+        // Event::listen('illuminate.query', function ($sql) {
+        //     logi(json_encode($sql));
+        // });
+
+        // DB::listen(function ($sql, $bindings, $time) {
+        //     Log::info(sprintf('%s (%s) : %s', $sql, implode(',', $bindings), $time));
+        // });
     }
 
     private function addSchemas()
@@ -89,8 +108,6 @@ class GraphQLServiceProvider extends ServiceProvider
         GraphQL::addType('App\GraphQL\Type\Todo\RenameTodoPayload', 'RenameTodoPayload');
         // GraphQL::addType('App\GraphQL\Type\Todo\TodoConnection', 'TodoConnection');
         // GraphQL::addType('App\GraphQL\Type\Todo\TodoNodeType', 'TodoNodeType');
-
-
 
     }
 }

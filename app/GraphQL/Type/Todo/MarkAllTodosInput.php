@@ -18,9 +18,9 @@ class MarkAllTodosInput extends BaseInputType
             'complete' => [
                 'type' => Type::nonNull(Type::boolean())
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }

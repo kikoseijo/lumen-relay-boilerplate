@@ -21,9 +21,9 @@ class AddTodoPayload extends BasePayloadType
             'viewer' => [
                 'type' => GraphQL::type('User')
             ],
-            'clientMutationId' => [
-                'type' => Type::string()
-            ],
+            // 'clientMutationId' => [
+            //     'type' => Type::nonNull(Type::string()),
+            // ],
         ];
     }
 }
