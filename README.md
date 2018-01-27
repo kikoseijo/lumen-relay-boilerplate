@@ -1,10 +1,10 @@
-# Lumen + Relay Modern <sup>aka: GraphQL 2.0v</sup>
+# Lumen + Relay Modern <sub>(aka: GraphQL 2.0v)</sub>
 
-This is a Lumen implementation of a GraphQL server written in PHP, you can use it as a boilerplate or just to learn, its created with the purpose of experimenting with this 2 worlds and save a bit of time for people trying to do same thing by reading someone else implementation, We use it to interact with a react applications thats been built using React + Relay Modern, you can read more about he client app here [React Relay Client App](https://github.com/kikoseijo/react-relay-app)
+This is a PHP API Server using Laravel´s **Lumen** it acts as a GraphQL Server, you can use it as a starting point or just for learning purpose, its created with the idea of experimenting with this 2 undiscovered worlds hoping to save some configuration time kicking new projects, it also aims to help people coming from a PHP background dig in the GraphQL world. It contains a demo schema able to interact with a client Web App thats been built using React + Relay Modern, you can read more about the client app on the following repository [React Relay Client App](https://github.com/kikoseijo/react-relay-app).
 
 # Install
 
-When writing this the package used to help Lumen be a GraphQL server, needs some fixes that not been resolved, till then, you just have to change to this version other version i have forked with the patch:
+When building this package the package able to make of Lumen a GraphQL server had bugs, i have forked it with a patch what you can use for now by adding this to your package file:
 
 #### 1 . Change path repo for this:
 
@@ -17,6 +17,10 @@ When writing this the package used to help Lumen be a GraphQL server, needs some
   }
 ],
 ```
+
+[PR with the fix](https://github.com/Folkloreatelier/laravel-graphql/pull/268) in case you want to make it yourself.
+
+https://github.com/Folkloreatelier/laravel-graphql/pull/268#268
 
 _Due to development and understand code i use a path repo, read logs and so..._
 
