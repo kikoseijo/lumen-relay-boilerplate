@@ -16,7 +16,7 @@ class RemoveCompletedTodosPayload extends BasePayloadType
     {
         return [
             'deletedTodoIds' => [
-                'type' => Type::listOf(Type::string())
+                'type' => Type::listOf(GraphQL::type('Todo'))
             ],
             'viewer' => [
                 'type' => GraphQL::type('User')

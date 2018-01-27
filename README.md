@@ -64,7 +64,21 @@ mutation {
 }
 ```
 
-#### Read todos
+When you have to access Authenticated routes you can configure the Bearer token that server provides after login, thanks to this token we cant track the current logged in User. Configure the GraphQL Client creating an HTTP Header with the following:
+
+```json
+{
+  "Authorization": "Bearer PASTE_HERE_YOUR_TOKEN"
+}
+```
+
+#### Query with Fragments
+
+One of the coolest features GraphQL provides its how queries from different parts of the application are joined by the compiler on a clever manner in order to optimize efficiency.
+
+Queries are pre compiled and validated against the development or production server schema, this gives us a extra layer of compatibility on development stages.
+
+The following Query its in charge of 1. Gets the current logged in user, 2. ask for user todos, 3. provides information to the server on how and what fields we require.
 
 ```graphql
 query TodoQuery {
@@ -130,51 +144,11 @@ fragment Todo_viewer on User {
 }
 ```
 
-#### Mutation
-
-When accesing auth routes you have to configure the access token you get when you
-login, this is done to validate current logged in User. Configure the GraphQL Client creating a HTTP Header with the following:
-
-```json
-{
-  "Authorization": "Bearer PASTE_HERE_YOUR_TOKEN"
-}
-```
-
-```graphql
-mutation AddTodoMutation($input: AddTodoInput!) {
-  addTodo(input: $input) {
-    todoEdge {
-      __typename
-      cursor
-      node {
-        complete
-        id
-        text
-      }
-    }
-    viewer {
-      id
-      totalCount
-    }
-  }
-}
-```
-
-Query variables
-
-```json
-{
-  "input": {
-    "text": "Im a new todo thing",
-    "clientMutationId": "VXNlcjox"
-  }
-}
-```
-
 Here you have a picture of this query using the [GraphQL Playground App](https://github.com/graphcool/graphql-playground), thats also free to download!
 
 ![Mutation example](/public/img/mutation.png?raw=true 'Mutation GraphQL Playground example')
+
+More examples: https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md
 
 ### Thats all for now folks!
 
