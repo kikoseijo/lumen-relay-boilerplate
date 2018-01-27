@@ -8,17 +8,6 @@ picture of a full CRUD example.
 * [Change all Todo status](#change-all-todo-status)
 * [Delete completed Todos](#delete-completed-todos)
 
-#### Mutation
-
-When accesing auth routes you have to configure the access token you get when you
-login, this is done to validate current logged in User. Configure the GraphQL Client creating a HTTP Header with the following:
-
-```json
-{
-  "Authorization": "Bearer PASTE_HERE_YOUR_TOKEN"
-}
-```
-
 #### Add Todo
 
 ```graphql
@@ -41,13 +30,37 @@ mutation AddTodoMutation($input: AddTodoInput!) {
 }
 ```
 
-Query variables
+Query params:
 
 ```json
 {
   "input": {
     "text": "Im a new todo thing",
     "clientMutationId": "VXNlcjox"
+  }
+}
+```
+
+Query response:
+
+```json
+{
+  "data": {
+    "addTodo": {
+      "todoEdge": {
+        "__typename": "TodoEdge",
+        "cursor": "77",
+        "node": {
+          "complete": false,
+          "id": "VG9kbzo3Nw==",
+          "text": "Im a new todo thing"
+        }
+      },
+      "viewer": {
+        "id": "VXNlcjox",
+        "totalCount": 3
+      }
+    }
   }
 }
 ```
@@ -67,7 +80,7 @@ mutation RenameTodoMutation($input: RenameTodoInput!) {
 }
 ```
 
-Params:
+Query params:
 
 ```json
 {
@@ -78,7 +91,7 @@ Params:
 }
 ```
 
-Response:
+Query response:
 
 ```json
 {
@@ -110,7 +123,7 @@ mutation MarkAllTodosMutation($input: MarkAllTodosInput!) {
 }
 ```
 
-Params:
+Query params:
 
 ```json
 {
@@ -120,7 +133,7 @@ Params:
 }
 ```
 
-Response:
+Query response:
 
 ```json
 {
@@ -162,7 +175,7 @@ mutation RemoveCompletedTodosMutation($input: RemoveCompletedTodosInput!) {
 }
 ```
 
-Params:
+Query params:
 
 ```json
 {
@@ -170,7 +183,7 @@ Params:
 }
 ```
 
-Response:
+Query response:
 
 ```json
 {
