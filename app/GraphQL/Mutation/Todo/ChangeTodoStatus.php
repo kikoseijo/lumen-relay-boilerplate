@@ -35,19 +35,21 @@ class ChangeTodoStatus extends BaseMutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        $record = Todo::find($args['input']['id']);
-        // logi($record);
+        $relayID = array_get($args,'input.id');
+        $globalId = app('graphql.relay')->fromGlobalId($relayID);
 
-        if (!$record) {
-            return null;
-        }
-
+        $record = Todo::findOrFail(array_get($globalId, 'id'));
         // $record->text = $args['input']['text'];
-        $record->complete = $args['input']['complete'] ?? 0;
+        $record->complete = array_get($args,'input.complete');
         $record->save();
+
+        $viewer = User::findOrFail($context->id);
+
+        logi($record);
         return [
-            'todo' => $record,
-            'viewer' => User::find($context->id)
+            'clientMutationId' => $relayID,
+            'todo' => $viewer->todos(),
+            'viewer' => $viewer
         ];
     }
 }
