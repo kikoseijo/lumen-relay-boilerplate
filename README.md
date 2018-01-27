@@ -1,4 +1,4 @@
-# Lumen + Relay Modern <sub>(aka: GraphQL 2.0v)</sub>
+# Lumen + Relay Modern <sub>(GraphQL v1.\*)</sub>
 
 A GraphQL Server in PHP, or, a fast micro-framework in PHP for microservices or API delivery, created by [Laravel](http://laravel.com), on his famous and delighting version called: **[Lumen](http://lumen.laravel.com)**.
 
