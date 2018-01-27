@@ -36,17 +36,18 @@ class ChangeTodoStatus extends BaseMutation
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
         $record = Todo::find($args['input']['id']);
+        // logi($record);
 
         if (!$record) {
             return null;
         }
 
-        $record->text = $args['input']['text'];
+        // $record->text = $args['input']['text'];
         $record->complete = $args['input']['complete'] ?? 0;
         $record->save();
-
         return [
-            'todo' => $record
+            'todo' => $record,
+            'viewer' => User::find($context->id)
         ];
     }
 }
