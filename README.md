@@ -1,6 +1,10 @@
 # Lumen + Relay Modern <sub>(aka: GraphQL 2.0v)</sub>
 
-This is a PHP API Server using Laravel´s **Lumen** it acts as a GraphQL Server, you can use it as a starting point or just for learning purpose, its created with the idea of experimenting with this 2 undiscovered worlds hoping to save some configuration time kicking new projects, it also aims to help people coming from a PHP background dig in the GraphQL world. It contains a demo schema able to interact with a client Web App thats been built using React + Relay Modern, you can read more about the client app on the following repository [React Relay Client App](https://github.com/kikoseijo/react-relay-app).
+A GraphQL Server in PHP, or, a fast micro-framework in PHP for microservices or API delivery, created by [Laravel](http://laravel.com), on his famous and delighting version called: **[Lumen](http://lumen.laravel.com)**.
+
+You can use it as a starting point to kick off a project, learning or any other purpose, it has been created with the idea of experimenting with this 2 new worlds (React + Relay) using a backend implementation on a language thats familiar, hoping dive in deeper in this new programming technologies.
+
+It aims to help people coming from a PHP background like mine to dig in the GraphQL world. It contains a demo schema, able to interact with a client Web App, an app built using React + Relay Modern, you can download free, its hosted in its own repo [React Relay Client App](https://github.com/kikoseijo/react-relay-app).
 
 # Install
 
