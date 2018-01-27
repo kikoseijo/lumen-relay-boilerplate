@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Type;
+namespace App\GraphQL\Type\Auth;
 
 use App\User;
 use Folklore\GraphQL\Relay\Support\NodeType;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Mutation;
+namespace App\GraphQL\Mutation\Auth;
 
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL\Type\Definition\Type;

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\GraphQL\Type;
+namespace App\GraphQL\Type\Auth;
 
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\PayloadType as BasePayloadType;
 use GraphQL;
 
-class UpdateUserEmailPayload extends BasePayloadType
+class LoginPayload extends BasePayloadType
 {
     protected $attributes = [
-        'name' => 'UpdateUserEmailPayload',
+        'name' => 'LoginPayload',
     ];
 
     protected function fields()
@@ -17,7 +17,10 @@ class UpdateUserEmailPayload extends BasePayloadType
         return [
             'user' => [
                 'type' => GraphQL::type('User'),
-            ]
+            ],
+            'token' => [
+                'type' => Type::nonNull(Type::string()),
+            ],
         ];
     }
 }

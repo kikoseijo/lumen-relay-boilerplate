@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL;
+use App\Todo;
 
 class MarkAllTodos extends BaseMutation
 {
@@ -32,9 +33,19 @@ class MarkAllTodos extends BaseMutation
         ];
     }
 
-
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+        $newStatus = array_get($args,'input.complete');
 
+        $records = Todo::where('user_id', '=', $context->id)->get();
+        foreach ($records as $record) {
+            $record->complete = $newStatus;
+            $record->save();
+        }
+
+        return [
+            'changedTodos' => $records,
+            'viewer' => $context
+        ];
     }
 }

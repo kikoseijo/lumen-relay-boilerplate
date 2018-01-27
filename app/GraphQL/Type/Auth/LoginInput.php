@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Type;
+namespace App\GraphQL\Type\Auth;
 
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Relay\Support\InputType as BaseInputType;

@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL;
+use App\Todo;
 
 class RenameTodo extends BaseMutation
 {
@@ -34,6 +35,16 @@ class RenameTodo extends BaseMutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+        $relayID = array_get($args,'input.id');
+        $globalID = app('graphql.relay')->fromGlobalId($relayID);
+        $dbRecordID = array_get($globalID, 'id');
 
+        $record = Todo::findOrFail($dbRecordID);
+        $record->text = array_get($args,'input.text');
+        $record->save();
+
+        return [
+            'todo' => $record,
+        ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Mutation;
+namespace App\GraphQL\Mutation\Auth;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;

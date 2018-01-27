@@ -38,12 +38,14 @@ class RemoveTodo extends BaseMutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+        // retrieve ID, due to being hidden behind input.
         $relayID = array_get($args,'input.id');
         $globalId = app('graphql.relay')->fromGlobalId($relayID);
         $id = array_get($globalId,'id');
+        // delete record.
         $record = Todo::findOrFail($id);
         $record->delete();
-        
+
         return [
             'deletedTodoId' => $relayID,
             'viewer' => $context

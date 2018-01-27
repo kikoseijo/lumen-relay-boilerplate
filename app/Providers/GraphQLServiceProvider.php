@@ -2,15 +2,15 @@
 
 namespace App\Providers;
 
-use App\GraphQL\Query\UsersQuery;
-use App\GraphQL\Query\ViewerQuery;
-use App\GraphQL\Type\UserNodeType;
 use GraphQL;
-// use GraphQL\GraphQL;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+
+use App\GraphQL\Query;
+use App\GraphQL\Type\Auth;
+use App\GraphQL\Type\Todo;
 
 class GraphQLServiceProvider extends ServiceProvider
 {
@@ -31,35 +31,26 @@ class GraphQLServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // DB::enableQueryLog();
-        DB::listen(function ($sql) {
-            logi($sql->sql);
-        });
+        // pass true for production debug otherwise only local will.
+        $this->printQueryLogs(false);
+        // Create schema\s
         $schema = $this->addSchemas();
-        $this->addTypes();
-        // Event::listen('illuminate.query', function ($query) {
-        //     logi(json_encode($query));
-        // });
-        // Event::listen('illuminate.query', function ($sql) {
-        //     logi(json_encode($sql));
-        // });
-
-        // DB::listen(function ($sql, $bindings, $time) {
-        //     Log::info(sprintf('%s (%s) : %s', $sql, implode(',', $bindings), $time));
-        // });
+        // Add types
+        $this->addAuthTypes();
+        $this->addTodoTypes();
     }
 
     private function addSchemas()
     {
         return GraphQL::addSchema('admin', [
             'query'    => [
-                'users'  => UsersQuery::class,
-                'viewer' => ViewerQuery::class,
+                'users'  => Query\UsersQuery::class,
+                'viewer' => Query\ViewerQuery::class,
             ],
             'mutation' => [
-                'App\GraphQL\Mutation\Login',
-                'App\GraphQL\Mutation\SignupUser',
-                'App\GraphQL\Mutation\UpdateUserEmail',
+                'App\GraphQL\Mutation\Auth\Login',
+                'App\GraphQL\Mutation\Auth\SignupUser',
+                'App\GraphQL\Mutation\Auth\UpdateUserEmail',
 
                 'App\GraphQL\Mutation\Todo\AddTodo',
                 'App\GraphQL\Mutation\Todo\ChangeTodoStatus',
@@ -71,43 +62,55 @@ class GraphQLServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function addTypes()
+    private function addAuthTypes()
     {
 
         // GraphQL::addType('\Folklore\GraphQL\Relay\NodeInterface', 'Node');
         // GraphQL::addType('\Folklore\GraphQL\Relay\PageInfoType', 'PageInfo');
 
-        GraphQL::addType(UserNodeType::class, 'User');
-        GraphQL::addType('App\GraphQL\Type\UpdateUserEmailInput', 'UpdateUserEmailInput');
-        GraphQL::addType('App\GraphQL\Type\UpdateUserEmailPayload', 'UpdateUserEmailPayload');
+        GraphQL::addType(Auth\UserNodeType::class, 'User');
+        GraphQL::addType(Auth\UpdateUserEmailInput::class, 'UpdateUserEmailInput');
+        GraphQL::addType(Auth\UpdateUserEmailPayload::class, 'UpdateUserEmailPayload');
 
-        GraphQL::addType('App\GraphQL\Type\RegisterInput', 'RegisterInput');
-        GraphQL::addType('App\GraphQL\Type\RegisterPayload', 'RegisterPayload');
+        GraphQL::addType(Auth\RegisterInput::class, 'RegisterInput');
+        GraphQL::addType(Auth\RegisterPayload::class, 'RegisterPayload');
 
-        GraphQL::addType('App\GraphQL\Type\LoginInput', 'LoginInput');
-        GraphQL::addType('App\GraphQL\Type\LoginPayload', 'LoginPayload');
+        GraphQL::addType(Auth\LoginInput::class, 'LoginInput');
+        GraphQL::addType(Auth\LoginPayload::class, 'LoginPayload');
+        // this 2 examples are not fully implemented-,
+        GraphQL::addType(\App\GraphQL\Type\PhotoNodeType::class, 'Photo');
+        GraphQL::addType(\App\GraphQL\Type\PhotosConnection::class, 'PhotosConnection');
+    }
 
-        GraphQL::addType('App\GraphQL\Type\PhotoNodeType', 'Photo');
-        GraphQL::addType('App\GraphQL\Type\PhotosConnection', 'PhotosConnection');
+    private function addTodoTypes()
+    {
+        GraphQL::addType(Todo\TodoNodeType::class, 'Todo');
+        GraphQL::addType(Todo\TodoConnection::class, 'TodoConnection');
 
-        GraphQL::addType('App\GraphQL\Type\Todo\TodoNodeType', 'Todo');
-        GraphQL::addType('App\GraphQL\Type\Todo\TodoConnection', 'TodoConnection');
-        // // GraphQL::addType('App\GraphQL\Field\TodoConnectionField', 'TodoConnectionField');
-        //
-        GraphQL::addType('App\GraphQL\Type\Todo\AddTodoInput', 'AddTodoInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\AddTodoPayload', 'AddTodoPayload');
-        GraphQL::addType('App\GraphQL\Type\Todo\ChangeTodoStatusInput', 'ChangeTodoStatusInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\ChangeTodoStatusPayload', 'ChangeTodoStatusPayload');
-        GraphQL::addType('App\GraphQL\Type\Todo\MarkAllTodosInput', 'MarkAllTodosInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\MarkAllTodosPayload', 'MarkAllTodosPayload');
-        GraphQL::addType('App\GraphQL\Type\Todo\RemoveCompletedTodosInput', 'RemoveCompletedTodosInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\RemoveCompletedTodosPayload', 'RemoveCompletedTodosPayload');
-        GraphQL::addType('App\GraphQL\Type\Todo\RemoveTodoInput', 'RemoveTodoInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\RemoveTodoPayload', 'RemoveTodoPayload');
-        GraphQL::addType('App\GraphQL\Type\Todo\RenameTodoInput', 'RenameTodoInput');
-        GraphQL::addType('App\GraphQL\Type\Todo\RenameTodoPayload', 'RenameTodoPayload');
-        // GraphQL::addType('App\GraphQL\Type\Todo\TodoConnection', 'TodoConnection');
-        // GraphQL::addType('App\GraphQL\Type\Todo\TodoNodeType', 'TodoNodeType');
+        GraphQL::addType(Todo\AddTodoInput::class, 'AddTodoInput');
+        GraphQL::addType(Todo\AddTodoPayload::class, 'AddTodoPayload');
 
+        GraphQL::addType(Todo\ChangeTodoStatusInput::class, 'ChangeTodoStatusInput');
+        GraphQL::addType(Todo\ChangeTodoStatusPayload::class, 'ChangeTodoStatusPayload');
+
+        GraphQL::addType(Todo\MarkAllTodosInput::class, 'MarkAllTodosInput');
+        GraphQL::addType(Todo\MarkAllTodosPayload::class, 'MarkAllTodosPayload');
+
+        GraphQL::addType(Todo\RemoveCompletedTodosInput::class, 'RemoveCompletedTodosInput');
+        GraphQL::addType(Todo\RemoveCompletedTodosPayload::class, 'RemoveCompletedTodosPayload');
+
+        GraphQL::addType(Todo\RemoveTodoInput::class, 'RemoveTodoInput');
+        GraphQL::addType(Todo\RemoveTodoPayload::class, 'RemoveTodoPayload');
+
+        GraphQL::addType(Todo\RenameTodoInput::class, 'RenameTodoInput');
+        GraphQL::addType(Todo\RenameTodoPayload::class, 'RenameTodoPayload');
+    }
+
+    private function printQueryLogs($allways = false){
+        if ($allways || app()->environment() == 'local'){
+            DB::listen(function ($sql) {
+                logi($sql->sql);
+            });
+        }
     }
 }

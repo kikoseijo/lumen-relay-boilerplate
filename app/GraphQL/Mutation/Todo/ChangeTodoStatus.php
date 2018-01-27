@@ -36,6 +36,7 @@ class ChangeTodoStatus extends BaseMutation
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
+        // retrieve real record ID, due to being hidden behind input.
         $relayID = array_get($args,'input.id');
         $globalID = app('graphql.relay')->fromGlobalId($relayID);
         $dbRecordID = array_get($globalID, 'id');
