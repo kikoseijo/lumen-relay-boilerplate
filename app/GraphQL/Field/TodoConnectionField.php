@@ -47,7 +47,7 @@ class TodoConnectionField extends ConnectionField
         // $skip = array_get($args, 'after') ?? 0;
         // $first = array_get($args, 'first') ?? 10;
         // $status = array_get($args, 'status') == 'complete' ? 1 : 0;
-        return $root->todos();
+        return $root->todos()->orderBy('id', 'ASC');
                     // ->where('complete', $status)
                     // ->skip($skip)
                     // ->take($first);

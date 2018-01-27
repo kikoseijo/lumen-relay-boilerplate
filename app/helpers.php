@@ -1,16 +1,5 @@
 <?php
 
-function getIdFromRelayId($relayID = ''){
-  if ($relayID = ''){
-    return 0;
-  }
-  $globalId = app('graphql.relay')->fromGlobalId($relayID);
-  logi('$globalId');
-  logi($globalId);
-  // $typeName = $globalId['type'];
-  return $id;
-}
-
 if (!function_exists('config_path')) {
     /**
      * @param $path

@@ -132,6 +132,15 @@ fragment Todo_viewer on User {
 
 #### Mutation
 
+When accesing auth routes you have to configure the access token you get when you
+login, this is done to validate current logged in User. Configure the GraphQL Client creating a HTTP Header with the following:
+
+```json
+{
+  "Authorization": "Bearer PASTE_HERE_YOUR_TOKEN"
+}
+```
+
 ```graphql
 mutation AddTodoMutation($input: AddTodoInput!) {
   addTodo(input: $input) {
@@ -197,4 +206,4 @@ Happy coding people:
 
 ---
 
-<div dir=rtl markdown=1>Created by <b>Kiko Seijo</b></div>
+<div dir=rtl markdown=1>Created by <b>Kiko Seijo</b> on 2018</div>

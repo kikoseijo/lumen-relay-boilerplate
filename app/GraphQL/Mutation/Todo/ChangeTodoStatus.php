@@ -7,6 +7,7 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Folklore\GraphQL\Relay\Support\Mutation as BaseMutation;
 use GraphQL;
 use App\Todo;
+use App\User;
 
 class ChangeTodoStatus extends BaseMutation
 {
@@ -36,20 +37,47 @@ class ChangeTodoStatus extends BaseMutation
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
         $relayID = array_get($args,'input.id');
-        $globalId = app('graphql.relay')->fromGlobalId($relayID);
+        $globalID = app('graphql.relay')->fromGlobalId($relayID);
+        $dbRecordID = array_get($globalID, 'id');
 
-        $record = Todo::findOrFail(array_get($globalId, 'id'));
-        // $record->text = $args['input']['text'];
+        $record = Todo::findOrFail($dbRecordID);
         $record->complete = array_get($args,'input.complete');
         $record->save();
 
-        $viewer = User::findOrFail($context->id);
+        // we dont need to call again user to update the info.
+        // $viewer = User::findOrFail($context->id);
 
-        logi($record);
         return [
-            'clientMutationId' => $relayID,
-            'todo' => $viewer->todos(),
-            'viewer' => $viewer
+            'todo' => $record,
+            'viewer' => $context
         ];
     }
 }
+
+
+/**
+ * Expected server response from APP client
+ *
+ *{
+ *"data": {
+ *  "changeTodoStatus": {
+ *    "todo": {
+ *      "id": "VG9kbzo2",
+ *      "complete": true
+ *    },
+ *    "viewer": {
+ *      "id": "VXNlcjptZQ==",
+ *      "completedCount": 3
+ *    }
+ *  }
+ * }
+ *}
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
