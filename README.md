@@ -1,4 +1,4 @@
-# Lumen + Relay Modern <small>aka: GraphQL 2.0v</small>
+# Lumen + Relay Modern <sup>aka: GraphQL 2.0v</sup>
 
 This is a Lumen implementation of a GraphQL server written in PHP, you can use it as a boilerplate or just to learn, its created with the purpose of experimenting with this 2 worlds and save a bit of time for people trying to do same thing by reading someone else implementation, We use it to interact with a react applications thats been built using React + Relay Modern, you can read more about he client app here [React Relay Client App](https://github.com/kikoseijo/react-relay-app)
 
