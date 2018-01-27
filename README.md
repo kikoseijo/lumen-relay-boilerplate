@@ -12,7 +12,7 @@ When building this package the package able to make of Lumen a GraphQL server ha
 
 #### 1 . Change path repo for this:
 
-```
+```json
 # package.json
 "repositories": [
   {
