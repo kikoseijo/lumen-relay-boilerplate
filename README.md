@@ -12,9 +12,9 @@ With a [Laravel](http://laravel.com) heart, on his delighting micro-framework ve
 
 Why not my little Artisan? only limitations today for a GraphQL server in PHP are async calls, but this are problems PHP programmers been dealing with since the old days.
 
-PHP never been so optimized like it is today, its stable, fast and efficient. And Lumen?, isn´t a masterpiece?, a lightweight version of Laravel, sharing same core and data structure.
+PHP never been so optimized like it is today, its stable, fast and efficient. And Lumen?, because its a masterpiece, a lightweight version of Laravel, sharing same core and data structure. Perfect for building APIs.
 
-For little Artisan like myself makes it easy to read and understand how things gets cooked.
+For little Artisan like myself this is the perfect atmosphere to understand how things are achieved.
 
 # Who is this for?
 
