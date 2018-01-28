@@ -2,13 +2,25 @@
 
 A GraphQL Server in PHP, using a fast micro-framework able to provide micro-services or API delivery.
 
+* Introduction
+* Why Lumen? and why PHP?
+* [Who is this for?](#who-is-this-for)
+* [Client Web App](#client-web-app)
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [How to use](#how-to-use)
+* [Query examples endpoints](#query-examples-endpoints)
+* [More TODO examples](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md)
+* [Plugins](#plugins)
+* [Credits](#credits)
+
 ## Introduction
 
 On this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
 
 With a [Laravel](http://laravel.com) heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic server setup.
 
-## Why Lumen? Why PHP?
+## Why Lumen? and why PHP?
 
 Why not my little Artisan? only limitations today for a GraphQL server in PHP are async calls, but this are problems PHP programmers been dealing with since the old days.
 
@@ -78,7 +90,7 @@ By browsing to `/schema.json` you can retrieve the latest version of your .json 
 
 Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
 
-## Built in examples endpoints
+## Query examples endpoints
 
 Here are couple of examples, this are GraphQL queries and mutations, you can find couple more examples in the [/docs](/docs) folder of this repo.
 
