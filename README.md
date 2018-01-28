@@ -1,9 +1,13 @@
-# Lumen + Relay Modern <span dir=rtl markdown=1><small>(GraphQL v1.\*)</small></span>
+# Lumen + Relay Modern
 
-A GraphQL Server in PHP, using a fast micro-framework able to provide micro-services or API delivery.
+###### React-Relay Modern, aka GraphQL v1.\*
 
-* Introduction
-* Why Lumen? and why PHP?
+A GraphQL Server in PHP, its core its a fast micro-framework implementation (Lumen), and capable of delivering GraphQL (Relay) API responses.
+
+## Index of content
+
+* [Introduction](#introduction)
+* [Why Lumen? and why PHP?](#why-lumen-and-why-php)
 * [Who is this for?](#who-is-this-for)
 * [Client Web App](#client-web-app)
 * [Installation](#installation)
