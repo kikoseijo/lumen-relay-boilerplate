@@ -2,13 +2,13 @@
 
 A GraphQL Server in PHP, using a fast micro-framework able to provide micro-services or API delivery.
 
-# Introduction
+## Introduction
 
 In this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
 
 With a [Laravel](http://laravel.com) heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic server setup.
 
-# Why Lumen? Why PHP?
+## Why Lumen? Why PHP?
 
 Why not my little Artisan? only limitations today for a GraphQL server in PHP are async calls, but this are problems PHP programmers been dealing with since the old days.
 
@@ -16,7 +16,7 @@ PHP never been so optimized like it is today, its stable, fast and efficient. An
 
 For little Artisan like myself this is the perfect atmosphere to understand how things are achieved.
 
-# Who is this for?
+## Who is this for?
 
 People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kick-off API projects, People with knowledge of PHP but not able to put all pieces together, this is what you get:
 
@@ -27,13 +27,13 @@ People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kic
 * User authentication using Passport.
 * Ready to start after setup!
 
-# Client Web App
+## Client Web App
 
 If you work with React we have published for you an application, there you can test all demo features, its a React + Relay based Web App. This is probably best way to have a full picture of what Relay its capable off, in my opinion, one of the best facebook´s open sourced contribution and React´s best friend. 💑
 
 [Visit the React Relay - WebApp client](https://github.com/kikoseijo/react-relay-app).
 
-# Installation
+## Installation
 
 When building this boilerplate the package able to supercharge Lumen with GraphQL had bugs, untill this gets fixed, use my forked repo, or read the PR with the fix to adjust yours.
 
@@ -64,13 +64,13 @@ If you don´t know how to pass this point, head over to [Laravel](http//laravel.
 APP_KEY=base64:4aVuW541oT+8kaM8VA/BkdfiuUloIHyihoGsCAY6Yt4=
 ```
 
-# Configuration
+## Configuration
 
 Go to your seeder and adjust your user login, migrate and seed the database.
 
 > Ready to go?, so, lets go!
 
-# How to use
+## How to use
 
 There is a full crud structure ready to show you how creation, deletion and update of records are done, its a simple TODO structure, single table, no relationships, but, you have the user 1:n with the Todo table. This are called Connections on the GraphQL world.
 
@@ -78,7 +78,7 @@ By browsing to `/schema.json` you can retrieve the latest version of your .json 
 
 Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
 
-# Built in examples endpoints
+## Built in examples endpoints
 
 Here are couple of examples, this are GraphQL queries and mutations, you can find couple more examples in the [/docs](/docs) folder of this repo.
 
@@ -188,7 +188,7 @@ More examples? [<<<< click here >>>>](https://github.com/kikoseijo/lumen-relay-b
 
 I kindly **_invite you to participate_** with your PR, reporting bugs or any configuration issues you might find, i can guarantee you that will share any stars you give this repo with the people thats done the **_hard work_**, because i haven´t, all i did was put couple packages together. 😝
 
-## Plugins
+### Plugins
 
 Every plugin has their own plugins, cant put them all in here, i´m only referencing the top level packages for you to have a quick reference to them to learn or ask any issues you might have.
 
@@ -199,7 +199,7 @@ Every plugin has their own plugins, cant put them all in here, i´m only referen
 * [Digiaonline lumen-cors](https://github.com/digiaonline/lumen-cors) no reactive apps with CORS browser restriction.
 * [Spatie laravel-activitylog](https://github.com/spatie/laravel-activitylog) lovely handy logs, made simple, by the Spatie people.
 
-## Credits
+### Credits
 
 * [GraphQL](http://graphql.org) facebook´s open sourced.
 * [Kiko Seijo](http://kikoseijo.com 'Laravel, React, Vue, Mobile freelancer in Málaga'), Senior WWW architect.
