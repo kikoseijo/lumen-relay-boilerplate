@@ -5,3 +5,4 @@ Homestead.yaml
 .env
 storage/*.key
 *.DS_Store
+yarn-error.log
