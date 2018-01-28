@@ -4,9 +4,9 @@ A GraphQL Server in PHP, using a fast micro-framework able to provide micro-serv
 
 # Introduction
 
-In this [Lumen](http://lumen.laravel.com){:target="\_blank"} version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
+In this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
 
-With a [Laravel](http://laravel.com){:target="\_blank"} heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic structure.
+With a [Laravel](http://laravel.com) heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic structure.
 
 # Why Lumen? Why PHP?
 
@@ -31,7 +31,7 @@ People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kic
 
 If you work with React we have published for you an application, there you can test all demo features, its a React + Relay based Web App. This is probably best way to have a full picture of what Relay its capable off, in my opinion, one of the best facebook´s open sourced contribution and React´s best friend. 💑
 
-[Visit the React Relay - WebApp client](https://github.com/kikoseijo/react-relay-app){:target="\_blank"}.
+[Visit the React Relay - WebApp client](https://github.com/kikoseijo/react-relay-app).
 
 # Installation
 
@@ -50,13 +50,13 @@ Configure # package.json with this repo, replace the "path" for this.
 ],
 ```
 
-[PR with the fix](https://github.com/Folkloreatelier/laravel-graphql/pull/268){:target="\_blank"} in case you want to make it yourself.
+[PR with the fix](https://github.com/Folkloreatelier/laravel-graphql/pull/268) in case you want to make it yourself.
 
 _Due to development and understand code i use a path repo, read logs and so..._
 
 #### 2 . Configure your database laravel way, using .env
 
-If you don´t know how to pass this point, head over to [Laravel](http//laravel.com){:target="\_blank"} and start there, come back after.
+If you don´t know how to pass this point, head over to [Laravel](http//laravel.com) and start there, come back after.
 
 #### 3 . Setup a valid key for encryption to work
 
@@ -76,7 +76,7 @@ There is a full crud structure ready to show you how creation, deletion and upda
 
 By browsing to `/schema.json` you can retrieve the latest version of your .json schema. This is needed for the GraphQL client. We wont go into this, its up to you to find more information about it.
 
-Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql){:target="\_blank"} you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
+Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
 
 # Built in examples endpoints
 
@@ -178,11 +178,11 @@ fragment Todo_viewer on User {
 }
 ```
 
-Here you have a picture of this query using the [GraphQL Playground App](https://github.com/graphcool/graphql-playground){:target="\_blank"}, thats also free to download!
+Here you have a picture of this query using the [GraphQL Playground App](https://github.com/graphcool/graphql-playground), thats also free to download!
 
-![Mutation example](/public/img/mutation.png?raw=true 'Mutation GraphQL Playground example'){:target="\_blank"}
+![Mutation example](/public/img/mutation.png?raw=true 'Mutation GraphQL Playground example')
 
-More examples? [<<<< click here >>>>](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md){:target="\_blank"}
+More examples? [<<<< click here >>>>](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md)
 
 ### Thats all for now folks!
 
