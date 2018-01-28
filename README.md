@@ -200,11 +200,11 @@ Here you have a picture of this query using the [GraphQL Playground App](https:/
 
 More examples? [<<<< click here >>>>](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md)
 
-### Thats all for now folks!
+#### Thats all for now folks!
 
 I kindly **_invite you to participate_** with your PR, reporting bugs or any configuration issues you might find, i can guarantee you that will share any stars you give this repo with the people thats done the **_hard work_**, because i haven´t, all i did was put couple packages together. 😝
 
-### Plugins
+## Plugins
 
 Every plugin has their own plugins, cant put them all in here, i´m only referencing the top level packages for you to have a quick reference to them to learn or ask any issues you might have.
 
@@ -215,7 +215,7 @@ Every plugin has their own plugins, cant put them all in here, i´m only referen
 * [Digiaonline lumen-cors](https://github.com/digiaonline/lumen-cors) no reactive apps with CORS browser restriction.
 * [Spatie laravel-activitylog](https://github.com/spatie/laravel-activitylog) lovely handy logs, made simple, by the Spatie people.
 
-### Credits
+## Credits
 
 * [GraphQL](http://graphql.org) facebook´s open sourced.
 * [Kiko Seijo](http://kikoseijo.com 'Laravel, React, Vue, Mobile freelancer in Málaga'), Senior WWW architect.
