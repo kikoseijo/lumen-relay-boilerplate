@@ -4,7 +4,7 @@ A GraphQL Server in PHP, using a fast micro-framework able to provide micro-serv
 
 ## Introduction
 
-In this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
+On this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
 
 With a [Laravel](http://laravel.com) heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic server setup.
 
