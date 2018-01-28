@@ -7,15 +7,15 @@ A GraphQL Server in PHP, its core its a fast micro-framework implementation (Lum
 ## Index of content
 
 * [Introduction](#introduction)
-* [Why Lumen? and why PHP?](#why-lumen-and-why-php)
 * [Who is this for?](#who-is-this-for)
+* [Included features](#included-features)
 * [Client Web App](#client-web-app)
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [How to use](#how-to-use)
 * [Query examples endpoints](#query-examples-endpoints)
 * [More TODO examples](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md)
-* [Plugins](#plugins)
+* [Used plugins & references](#plugins)
 * [Credits](#credits)
 
 ## Introduction
@@ -24,9 +24,9 @@ On this [Lumen](http://lumen.laravel.com) version of a GraphQL server implementa
 
 With a [Laravel](http://laravel.com) heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic server setup.
 
-## Why Lumen? and why PHP?
+##### Why Lumen? and why PHP?
 
-Why not my little Artisan? only limitations today for a GraphQL server in PHP are async calls, but this are problems PHP programmers been dealing with since the old days.
+Why not my little Artisan? PHP limitations today for a GraphQL server are asynchronous calls, but this are problems PHP programmers been dealing with since the old days, the missing part are the GraphQL subscriptions, this can be resolved using lots of tools, like Redis or NodeJS.
 
 PHP never been so optimized like it is today, its stable, fast and efficient. And Lumen?, because its a masterpiece, a lightweight version of Laravel, sharing same core and data structure. Perfect for building APIs.
 
@@ -34,7 +34,9 @@ For little Artisan like myself this is the perfect atmosphere to understand how 
 
 ## Who is this for?
 
-People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kick-off API projects, People with knowledge of PHP but not able to put all pieces together, this is what you get:
+People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kick-off API projects, a knowledge of Laravel its recommended, at a installation level, not covered here.
+
+## Included features
 
 * Full CRUD example.
 * GraphQL Playground.

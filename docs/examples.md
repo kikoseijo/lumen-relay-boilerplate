@@ -8,7 +8,7 @@ picture of a full CRUD example.
 * [Change all Todo status](#change-all-todo-status)
 * [Delete completed Todos](#delete-completed-todos)
 
-#### Add Todo
+## Add Todo
 
 ```graphql
 mutation AddTodoMutation($input: AddTodoInput!) {
@@ -30,7 +30,7 @@ mutation AddTodoMutation($input: AddTodoInput!) {
 }
 ```
 
-Query params:
+### Query params
 
 ```json
 {
@@ -41,7 +41,7 @@ Query params:
 }
 ```
 
-Query response:
+### Query response
 
 ```json
 {
@@ -65,7 +65,7 @@ Query response:
 }
 ```
 
-#### Update record
+## Update record
 
 Change todo text field, edit mutation example.
 
@@ -80,7 +80,7 @@ mutation RenameTodoMutation($input: RenameTodoInput!) {
 }
 ```
 
-Query params:
+### Query params
 
 ```json
 {
@@ -91,7 +91,7 @@ Query params:
 }
 ```
 
-Query response:
+### Query response
 
 ```json
 {
@@ -106,7 +106,7 @@ Query response:
 }
 ```
 
-#### Change all Todo status
+## Change all Todo status
 
 ```graphql
 mutation MarkAllTodosMutation($input: MarkAllTodosInput!) {
@@ -123,7 +123,7 @@ mutation MarkAllTodosMutation($input: MarkAllTodosInput!) {
 }
 ```
 
-Query params:
+### Query params
 
 ```json
 {
@@ -133,7 +133,7 @@ Query params:
 }
 ```
 
-Query response:
+### Query response
 
 ```json
 {
@@ -158,7 +158,7 @@ Query response:
 }
 ```
 
-#### Delete completed Todos
+## Delete completed Todos
 
 ```graphql
 mutation RemoveCompletedTodosMutation($input: RemoveCompletedTodosInput!) {
@@ -175,7 +175,7 @@ mutation RemoveCompletedTodosMutation($input: RemoveCompletedTodosInput!) {
 }
 ```
 
-Query params:
+### Query params
 
 ```json
 {
@@ -183,7 +183,7 @@ Query params:
 }
 ```
 
-Query response:
+### Query response
 
 ```json
 {
