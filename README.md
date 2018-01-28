@@ -1,4 +1,4 @@
-# Lumen + Relay Modern <sub>(GraphQL v1.\*)</sub>
+# Lumen + Relay Modern <div markdown=1>(GraphQL v1.\*)</div>
 
 A GraphQL Server in PHP, using a fast micro-framework able to provide micro-services or API delivery.
 
