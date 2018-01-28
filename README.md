@@ -1,19 +1,47 @@
 # Lumen + Relay Modern <sub>(GraphQL v1.\*)</sub>
 
-A GraphQL Server in PHP, or, a fast micro-framework in PHP for microservices or API delivery, created by [Laravel](http://laravel.com), on his famous and delighting version called: **[Lumen](http://lumen.laravel.com)**.
+A GraphQL Server in PHP, using a fast micro-framework able to provide micro-services or API delivery.
 
-You can use it as a starting point to kick off a project, learning or any other purpose, it has been created with the idea of experimenting with this 2 new worlds (React + Relay) using a backend implementation on a language thats familiar, hoping dive in deeper in this new programming technologies.
+# Introduction
 
-It aims to help people coming from a PHP background like mine to dig in the GraphQL world. It contains a demo schema, able to interact with a client Web App, an app built using React + Relay Modern, you can download free, its hosted in its own repo [React Relay Client App](https://github.com/kikoseijo/react-relay-app).
+In this [Lumen](http://lumen.laravel.com){:target="\_blank"} version of a GraphQL server implementation you will be able to start coding right away a fully qualified GraphQL server with support for react-relay (Modern version).
 
-# Install
+With a [Laravel](http://laravel.com){:target="\_blank"} heart, on his delighting micro-framework version (Lumen) and a help of a couple of other [packages/plugins](#plugins), we provide you with the basic structure.
 
-When building this package the package able to make of Lumen a GraphQL server had bugs, i have forked it with a patch what you can use for now by adding this to your package file:
+# Why Lumen? Why PHP?
+
+Why not my little Artisan? only limitations today for a GraphQL server in PHP are async calls, but this are problems PHP programmers been dealing with since the old days.
+
+PHP never been so optimized like it is today, its stable, fast and efficient. And Lumen?, isn´t a masterpiece?, a lightweight version of Laravel, sharing same core and data structure.
+
+For little Artisan like myself makes it easy to read and understand how things gets cooked.
+
+# Who is this for?
+
+People wanting to get hands dirty with GraphQL, to serve as a boilerplate to kick-off API projects, People with knowledge of PHP but not able to put all pieces together, this is what you get:
+
+* Full CRUD example.
+* GraphQL Playground.
+* Database migrations.
+* GraphQl database schema generator and endpoint.
+* User authentication using Passport.
+* Ready to start after setup!
+
+# Client Web App
+
+If you work with React we have published for you an application, there you can test all demo features, its a React + Relay based Web App. This is probably best way to have a full picture of what Relay its capable off, in my opinion, one of the best facebook´s open sourced contribution and React´s best friend. 💑
+
+[Visit the React Relay - WebApp client](https://github.com/kikoseijo/react-relay-app){:target="\_blank"}.
+
+# Installation
+
+When building this boilerplate the package able to supercharge Lumen with GraphQL had bugs, untill this gets fixed, use my forked repo, or read the PR with the fix to adjust yours.
 
 #### 1 . Change path repo for this:
 
+Configure # package.json with this repo, replace the "path" for this.
+
 ```json
-# package.json
 "repositories": [
   {
     "type": "csv",
@@ -22,17 +50,15 @@ When building this package the package able to make of Lumen a GraphQL server ha
 ],
 ```
 
-[PR with the fix](https://github.com/Folkloreatelier/laravel-graphql/pull/268) in case you want to make it yourself.
-
-https://github.com/Folkloreatelier/laravel-graphql/pull/268#268
+[PR with the fix](https://github.com/Folkloreatelier/laravel-graphql/pull/268){:target="\_blank"} in case you want to make it yourself.
 
 _Due to development and understand code i use a path repo, read logs and so..._
 
 #### 2 . Configure your database laravel way, using .env
 
-If you don´t know how to pass this point, head over to [Laravel](http//laravel.com) and start there, come here couple days after. We will be here waiting, don´t worry.
+If you don´t know how to pass this point, head over to [Laravel](http//laravel.com){:target="\_blank"} and start there, come back after.
 
-#### 3 . Add a valid key for encryption to work
+#### 3 . Setup a valid key for encryption to work
 
 ```
 APP_KEY=base64:4aVuW541oT+8kaM8VA/BkdfiuUloIHyihoGsCAY6Yt4=
@@ -40,17 +66,25 @@ APP_KEY=base64:4aVuW541oT+8kaM8VA/BkdfiuUloIHyihoGsCAY6Yt4=
 
 # Configuration
 
-Go to your seeder and setup a user to test logins. After that you are ready to start coding, after you migrate and seed the database, don´t forget!
+Go to your seeder and adjust your user login, migrate and seed the database.
+
+> Ready to go?, so, lets go!
 
 # How to use
 
-There is a full crud structure ready to show you creation, deletion, update of records, does not goes deep into relationships, but its a perfect starting point. By browsing to `/schema.json` you can inspect the .json schema.
+There is a full crud structure ready to show you how creation, deletion and update of records are done, its a simple TODO structure, single table, no relationships, but, you have the user 1:n with the Todo table. This are called Connections on the GraphQL world.
 
-Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
+By browsing to `/schema.json` you can retrieve the latest version of your .json schema. This is needed for the GraphQL client. We wont go into this, its up to you to find more information about it.
+
+Thanks to [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql){:target="\_blank"} you are also able to test your endpoints and queries using the bundled client, just by browsing to `/graphql`.
 
 # Built in examples endpoints
 
+Here are couple of examples, this are GraphQL queries and mutations, you can find couple more examples in the [/docs](/docs) folder of this repo.
+
 #### Login
+
+Using Laravel Passport we are able to generate token based auth method, you can build more complex methods, this is one of them.
 
 ```graphql
 mutation {
@@ -64,7 +98,7 @@ mutation {
 }
 ```
 
-When you have to access Authenticated routes you can configure the Bearer token that server provides after login, thanks to this token we cant track the current logged in User. Configure the GraphQL Client creating an HTTP Header with the following:
+To access Authenticated routes you must include the Bearer token in your requests, after a valid login, the server provides you a token, use this token to authenticate your GraphQL Client adding an HTTP Header with the following structure:
 
 ```json
 {
@@ -74,11 +108,11 @@ When you have to access Authenticated routes you can configure the Bearer token 
 
 #### Query with Fragments
 
-One of the coolest features GraphQL provides its how queries from different parts of the application are joined by the compiler on a clever manner in order to optimize efficiency.
+One of the coolest features GraphQL+Relay its how queries from different parts of the application are joined by the compiler trying to optimize efficiency.
 
-Queries are pre compiled and validated against the development or production server schema, this gives us a extra layer of compatibility on development stages.
+Queries are pre compiled and validated against the development or production server schema, this gives you an extra layer of compatibility on development stages.
 
-The following Query its in charge of 1. Gets the current logged in user, 2. ask for user todos, 3. provides information to the server on how and what fields we require.
+The following Query its in charge of 1. Gets the current logged in user, 2. ask for user todos, 3. tells GraphQL server how and what data we want.
 
 ```graphql
 query TodoQuery {
@@ -144,34 +178,34 @@ fragment Todo_viewer on User {
 }
 ```
 
-Here you have a picture of this query using the [GraphQL Playground App](https://github.com/graphcool/graphql-playground), thats also free to download!
+Here you have a picture of this query using the [GraphQL Playground App](https://github.com/graphcool/graphql-playground){:target="\_blank"}, thats also free to download!
 
-![Mutation example](/public/img/mutation.png?raw=true 'Mutation GraphQL Playground example')
+![Mutation example](/public/img/mutation.png?raw=true 'Mutation GraphQL Playground example'){:target="\_blank"}
 
-More examples: https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md
+More examples? [<<<< click here >>>>](https://github.com/kikoseijo/lumen-relay-boilerplate/blob/master/docs/examples.md){:target="\_blank"}
 
 ### Thats all for now folks!
 
-I kindly **_invite you to participate_** with your pull requests or just by simply reporting bugs or configuration issues, will share your stars with the real people thats done the **_hard work_**, i have only put them all together on this way to make our life a bit easier.
+I kindly **_invite you to participate_** with your PR, reporting bugs or any configuration issues you might find, i can guarantee you that will share any stars you give this repo with the people thats done the **_hard work_**, because i haven´t, all i did was put couple packages together. 😝
 
 ## Plugins
 
-Every plugin has its own plugins, i´m only referencing here packages that made this implementation possible. For all the other ones i must also say thanks!.
+Every plugin has their own plugins, cant put them all in here, i´m only referencing the top level packages for you to have a quick reference to them to learn or ask any issues you might have.
 
-* [Laravel Lumen](http://lumen.laravel.com) best PHP API ever made.
-* [graphql-php](https://github.com/webonyx/graphql-php) a PHP port of GraphQL reference implementation.
-* [laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) A version of webonyx for Laravel + Lumen.
-* [lumen-cors](https://github.com/digiaonline/lumen-cors) no reactive apps with CORS browser restriction.
-* [Spatie Activity logs](https://github.com/spatie/laravel-activitylog) lovely handy logs, made simple by the Spatie people.
+* [Laravel Lumen micro-framework](http://lumen.laravel.com) best PHP API ever made.
+* [Laravel Passport](https://laravel.com/docs/master/passport) provides several authentication mechanism.
+* [Webonyx graphql-php](https://github.com/webonyx/graphql-php) a PHP port of GraphQL reference implementation.
+* [Folkloreatelier laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql) it supercharge Webonyx with a Laravel + Lumen version.
+* [Digiaonline lumen-cors](https://github.com/digiaonline/lumen-cors) no reactive apps with CORS browser restriction.
+* [Spatie laravel-activitylog](https://github.com/spatie/laravel-activitylog) lovely handy logs, made simple, by the Spatie people.
 
 ## Credits
 
-Happy coding people:
+* [GraphQL](http://graphql.org) facebook´s open sourced.
+* [Kiko Seijo](http://kikoseijo.com 'Laravel, React, Vue, Mobile freelancer in Málaga'), Senior WWW architect.
+* [Diseño ideas](http://disenoideas.com 'Real estate website designer in Marbella'), Marbella based design agency.
 
-* [Kiko Seijo](http://kikoseijo.com 'Laravel, React, Vue, Mobile freelancer in Málaga')
-* [Diseño ideas](http://disenoideas.com 'Real estate website designer in Marbella')
-
-**Sunnyface.com**, is a software development company from **Málaga, Spain**. We provide quality software based on the cloud for local & international companies, providing technology solutions with the [most modern programming languages](https://sunnyface.com/tecnologia/ 'Programador experto react y vue en Málaga').
+**Sunnyface.com**, it´s a software development company based in **Málaga, South Spain**. We provide cloud based quality software, reactive App or Native development for iOS and Android, we work with local & international companies, providing technology solutions with the [most modern programming languages](https://sunnyface.com/tecnologia/ 'Programador experto react y vue en Málaga').
 
 [DevOps](https://sunnyface.com 'Programador ios málaga Marbella') Web development  
 [Custom App Development](https://gestorapp.com 'Gestor de aplicaciones moviles en málaga, mijas, marbella') Mobile aplications  
