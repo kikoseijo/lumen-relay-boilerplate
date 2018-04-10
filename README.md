@@ -1,6 +1,11 @@
-# Lumen + Relay Modern
+# DEPRECATED
 
-A GraphQL Server in PHP, its core its a fast micro-framework implementation (Lumen), and capable of delivering GraphQL (Relay) API responses.
+This project it's no longer maintained in favor of v2 of [nuwave/lighthouse](https://github.com/nuwave/lighthouse).
+You can find an example implementation for lumen on: [https://github.com/kikoseijo/lumen-lighthouse-graphql](https://github.com/kikoseijo/lumen-lighthouse-graphql)
+
+### Laravel´s Lumen GraphQL Server for Relay Modern
+
+This example uses [https://github.com/Folkloreatelier/laravel-graphql](https://github.com/Folkloreatelier/laravel-graphql), its a Relay Modern implementation of a PHP GraphQL Server / endpoints, a Laravel´s minimized version, its core its a fast micro-framework implementation (Lumen), and capable of delivering GraphQL (Relay) API responses.
 
 ###### React-Relay Modern, aka GraphQL v1.\*
 
